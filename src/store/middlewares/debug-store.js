@@ -3,6 +3,7 @@ window.store = {
   trace: [],
   states: [],
 }
+
 const debugStore = store => next => action => {
 
   if (process.env.NODE_ENV === 'development') {

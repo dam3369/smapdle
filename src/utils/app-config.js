@@ -1,5 +1,5 @@
 import { actorMarker, investigatorMarker, locationMarker, recorderMarker, vehicleMarker } from 'components/markers'
-import { READ, MOVE, NOTHING, ALL } from 'components/hooks/acl'
+import { READ, MOVE, NOTHING, ALL } from 'hooks/acl'
 
 const config = {
   groups: [

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import Emoji from 'a11y-react-emoji'
 
-import { Icon } from '../__style__/admin-panel.style'
-import { Ul, Li } from '../__style__/menu.style'
-import useAcl from 'components/hooks/acl'
+import { Icon } from 'assets/style/panels/admin.style'
+import { Ul, Li } from 'assets/style/panels/menu.style'
+import useAcl from 'hooks/acl'
 
 const Menu = ({ handleDragStart, handleDragEnd }) => {
   const { canRead } = useAcl({ type: `panels` })
@@ -15,27 +15,27 @@ const Menu = ({ handleDragStart, handleDragEnd }) => {
           <Ul>
             <Li>
               <Icon draggable onDragStart={(e) => handleDragStart(e, 'actor', '👨')} onDragEnd={() => handleDragEnd()}>
-                <Emoji symbol="👨" label="actor" />
+                <Emoji title="Add actor" symbol="👨" label="actor" />
               </Icon>
             </Li>
             <Li>
               <Icon draggable onDragStart={(e) => handleDragStart(e, 'investigator', '🕵️‍♂️')} onDragEnd={() => handleDragEnd()}>
-                <Emoji symbol="🕵️‍♂️" label="investigator" />
+                <Emoji title="Add investigator" symbol="🕵️‍♂️" label="investigator" />
               </Icon>
             </Li>
             <Li>
               <Icon draggable onDragStart={(e) => handleDragStart(e, 'location', '🏘️')} onDragEnd={() => handleDragEnd()}>
-                <Emoji symbol="🏘️" label="location" />
+                <Emoji title="Add location" symbol="🏘️" label="location" />
               </Icon>
             </Li>
             <Li>
               <Icon draggable onDragStart={(e) => handleDragStart(e, 'recorder', '📷')} onDragEnd={() => handleDragEnd()}>
-                <Emoji symbol="📷" label="recorder" />
+                <Emoji title="Add recorder" symbol="📷" label="recorder" />
               </Icon>
             </Li>
             <Li>
               <Icon draggable onDragStart={(e) => handleDragStart(e, 'vehicle', '🚗')} onDragEnd={() => handleDragEnd()}>
-                <Emoji symbol="🚗" label="vehicle" />
+                <Emoji title="Add vehicule" symbol="🚗" label="vehicle" />
               </Icon>
             </Li>
           </Ul>

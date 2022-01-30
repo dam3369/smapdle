@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 
-import { UPDATE_MARKER, ADD_MARKER, SET_IS_OVER_MARKER, DELETE_MARKER } from '../../actions'
+import { UPDATE_MARKER, ADD_MARKER, SET_IS_OVER_MARKER, DELETE_MARKER, CLEAR_MARKERS } from 'store/actions'
 
 const initialState = {
   actor: {},
@@ -52,7 +52,9 @@ const markerReducer = createReducer(initialState, {
     delete state[token][uid]
 
     return state
-  }
+  },
+
+  [CLEAR_MARKERS]: () => initialState
 })
 
 

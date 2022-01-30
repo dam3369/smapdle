@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import Emoji from 'a11y-react-emoji'
 import isEqual from 'lodash.isequal'
 
-import useMarker from 'components/hooks/marker'
-import useAcl from 'components/hooks/acl'
-import { Container } from 'components/map/markers/__style__/token.style'
-import { Wrapper } from 'components/map/markers/__style__/marker.style'
+import useMarker from 'hooks/marker'
+import useAcl from 'hooks/acl'
+import { Container } from 'assets/style/token.style'
+import { Wrapper } from 'assets/style/marker.style'
 
 import Menu from 'components/map/markers/menu'
 

@@ -1,6 +1,6 @@
 import Emoji from "a11y-react-emoji"
 
-import { Wrapper, Icon } from '../__style__/trash.style'
+import { Wrapper, Icon } from 'assets/style/panels/trash.style'
 
 
 const Trash = ({ isOpen }) => (

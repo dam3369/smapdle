@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { FaCheck, FaExpandAlt, FaMinus, FaPlus } from 'react-icons/fa'
 
-import { HItem, HList, SubMenu } from '../__style__/menu.style'
+import { HItem, HList, SubMenu } from 'assets/style/menu.style'
 
 
 const SizeMenu = ({ size: { value, setSize, limite }, isOpen, handleSave }) => (

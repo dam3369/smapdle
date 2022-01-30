@@ -1,11 +1,18 @@
 import { useRef, useEffect, useState } from 'react'
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import { useDispatch } from 'react-redux'
+
+import mapboxgl from '!mapbox-gl' // eslint-disable-line import/no-webpack-loader-syntax
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
+
+import { setCurrentLocation } from 'store/actions'
 
 const useMap = ({ accessToken, style }) => {
   const map = useRef(null)
   const mapRef = useRef(null)
   const [ isMapLoaded, setIsLoaded ] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
       if (map.current) return; // initialize map only once
@@ -26,6 +33,7 @@ const useMap = ({ accessToken, style }) => {
       })
 
       // attach basic controllers
+      map.current.addControl(new MapboxGeocoder({ accessToken, mapboxgl}))
       map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
       map.current.addControl(new mapboxgl.ScaleControl(), 'bottom-right')
@@ -40,13 +48,11 @@ const useMap = ({ accessToken, style }) => {
 
       map.current.on('moveend', () => {
         const { lng, lat } = map.current.getCenter()
+
+        dispatch(setCurrentLocation({ lng, lat }))
         window.localStorage.setItem('lng', lng)
         window.localStorage.setItem('lat', lat)
       })
-
-      // map.current.on('contextmenu', () => {
-      //   console.log('contextmenu')
-      // })
   })
 
   return {

@@ -22,13 +22,13 @@ const Item = styled.div`
   padding: 10px;
 
   &.info {
-    background-color: #ffffff;
-    color: #7a7a7a;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
   }
 
   &.success {
-    background-color: #cbffd3;
-    color: #34a213;
+    background-color: var(--blue);
+    color: var(--yellow);
   }
 
   &.warning {
@@ -46,14 +46,14 @@ const ItemIcon = styled.span`
   padding-right: 10px
 `
 
-const Message = ({ id, style, content }) => {
+const Message = ({ id, style, content, timeout }) => {
   const msg = useRef(null)
   const dispatch = useFlashDispatch()
 
   useEffect(() => {
     if (msg.current) return
     
-    setTimeout(() => dispatch(removeFlash(id)), 1000)
+    setTimeout(() => dispatch(removeFlash(id)), timeout || 1000)
   })
 
   return (

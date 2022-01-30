@@ -2,7 +2,7 @@ import Emoji from 'a11y-react-emoji'
 import PropTypes from 'prop-types'
 import { FaCog } from 'react-icons/fa'
 
-import { SubMenu, HItem, HList } from '../__style__/menu.style'
+import { SubMenu, HItem, HList } from 'assets/style/menu.style'
 
 
 const SkinMenu = ({ skins, handleSave, isOpen}) => (

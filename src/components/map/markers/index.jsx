@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 
 import CssHack from './css-hack'
 import Filter from './filter'
-import { loadMarkers } from '../../../actions'
-import appConfig from '../../../utils/app-config'
+import { initApp } from 'store/actions'
+import appConfig from 'utils/app-config'
 
 
 const Markers = ({ map }) => {
@@ -13,7 +13,7 @@ const Markers = ({ map }) => {
 
   useEffect(() => {
     if (isLoaded === false) {
-      return dispatch(loadMarkers())
+      return dispatch(initApp())
     }
   })
 

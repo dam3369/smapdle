@@ -1,19 +1,13 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
 
 import Markers from './markers'
 import Events from './events'
-import { setMap } from '../../actions'
-import config from '../../utils/app-config'
-import useMap from '../hooks/map'
+import { setMap } from 'store/actions'
+import config from 'utils/app-config'
+import useMap from 'hooks/map'
 
-const MapDiv = styled.div`
-  height: 100vh;
-  width: 100vw;
-`
-
-const Map = () => {
+const Map = ({ style, children }) => {
     const { map, mapRef, isMapLoaded } = useMap(config.mapbox)
     const dispatch = useDispatch()
 
@@ -43,7 +37,14 @@ const Map = () => {
 
     return (
         <>
-          <MapDiv onDrop={handleDrop} onDragOver={(e) => e.preventDefault()} ref={mapRef} className="map-container" />
+          <div 
+            style={{ position: 'relative', height: '100vh', ...style }} 
+            onDrop={handleDrop} onDragOver={(e) => e.preventDefault()} 
+            ref={mapRef} 
+            className="map-container"
+          >
+            {children}
+          </div>
           { isMapLoaded && <><Markers map={map} /><Events map={map} /></> }
         </>
     )

@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-import { dndMovePlayerMarker, flyTo } from 'actions'
+import { dndMovePlayerMarker, flyTo } from 'store/actions'
 import { getSkin } from 'components/player/skin'
 import { json } from 'utils/app-func'
-import useAcl from 'components/hooks/acl'
+import useAcl from 'hooks/acl'
 
 const RightPanel = styled.div`
   background-color: #fff;

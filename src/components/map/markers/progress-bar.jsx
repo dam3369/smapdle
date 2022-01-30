@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { ProgressBar, ProgressContent, ProgressBarTens } from'./__style__/progress-bar.style'
+import { ProgressBar, ProgressContent, ProgressBarTens } from'assets/style/progress-bar.style'
 
 const Progress = ({ limit, value }) => {
   const progress = (value / limit * 100)

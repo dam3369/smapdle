@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { FaEye, FaEyeSlash, FaSkull, FaTrashAlt } from 'react-icons/fa'
 
-import { Menu, VList, VItem } from '../__style__/menu.style'
-import { changeSkin, changeWeapon, deleteToken, kill, saveSize, toggleVisibility } from 'actions'
+import { Menu, VList, VItem } from 'assets/style/menu.style'
+import { changeSkin, changeWeapon, deleteToken, kill, saveSize, toggleVisibility } from 'store/actions'
 
 import SizeMenu, { shapeSize } from './size-menu'
 import SkinMenu from './skin-menu'

@@ -1,12 +1,12 @@
 import Emoji from 'a11y-react-emoji'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { Li } from '../__style__/menu.style'
-import { setIsOverMarker, flyTo, toggleVisibility, deleteToken } from '../../../actions'
 import { FaEye, FaEyeSlash, FaTrash } from 'react-icons/fa'
 import { isEqual } from 'lodash'
 
+
+import { Li } from 'assets/style/panels/menu.style'
+import { setIsOverMarker, flyTo, toggleVisibility, deleteToken } from 'store/actions'
 const ListItem = styled(Li)`
   cursor: pointer;
   display: flex;

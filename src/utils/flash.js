@@ -18,6 +18,7 @@ const flashSlice = createSlice({
         id: increment++,
         content: action.payload,
         style: SUCCESS,
+        timeout: 2000,
       })
     },
     setInfo(state, action) {
@@ -39,6 +40,7 @@ const flashSlice = createSlice({
         id: increment++,
         content: action.payload,
         style: ERROR,
+        timeout: 5000,
       })
     },
     removeFlash(state, action) {
@@ -60,6 +62,16 @@ export const flashErrorMsg = (content, error) => {
   window.errors.push(error)
   console.error(error)
   flashStore.dispatch(setError(content))
+}
+
+export const flashSuccess = (content) => {
+  console.info(content)
+  flashStore.dispatch(setSuccess(content))
+}
+
+export const flashInfo = (content) => {
+  console.info(content)
+  flashStore.dispatch(setInfo(content))
 }
 
 export const FlashProvider = ({ children }) => (

@@ -1,5 +1,5 @@
 
-import useAcl from 'components/hooks/acl'
+import useAcl from 'hooks/acl'
 import { isEqual } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 import { positionToLngLat } from 'utils/mapbox'
 import Item from './item'
-import { List, Wrapper } from '../__style__/admin-panel.style'
+import { List, Wrapper } from 'assets/style/panels/admin.style'
 
 export const BasePanel = ({ style, markers, markerType, getSkin, isHiddable }) => {
   const ref = useRef()

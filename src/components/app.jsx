@@ -1,16 +1,19 @@
 import { FirebaseAuthProvider, IfFirebaseUnAuthed, FirebaseAuthConsumer, IfFirebaseAuthed } from '@react-firebase/auth'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
 import firebase from 'utils/firebase'
 import config from 'utils/app-config'
-import LoginForm from './login-form'
+import Login from './login'
 import Map from './map'
-import { ActorPanel, ToolsPanel } from './panel'
+import { ActorPanel, CasesPanel, ToolsPanel, SidePanel } from './panel'
 import { PanelContainer, AdminPanel, UserPanel } from './panel/base/panel'
-import { setUser } from 'actions'
+import { setUser } from 'store/actions'
 
 const App = () => {
   const dispatch = useDispatch()
+  const [ sideSize, setSideSize ] = useState(20)
+
 
   return (
     <FirebaseAuthProvider {...config.firebase} firebase={firebase}>
@@ -22,17 +25,19 @@ const App = () => {
         }}
       </FirebaseAuthConsumer>
       <IfFirebaseUnAuthed>
-        { () => (<LoginForm firebase={firebase} />) }
+        { () => (<Login />) }
       </IfFirebaseUnAuthed>
       <IfFirebaseAuthed>
         { () => (
-          <>
-            <Map />
-            <PanelContainer>
-              <AdminPanel><ToolsPanel /></AdminPanel>
-              <UserPanel><ActorPanel /></UserPanel>
-            </PanelContainer>            
-          </>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <SidePanel style={{ width: `${sideSize}vw`}} />
+            <Map style={{ width: `${100 - sideSize}vw`}}>
+              <PanelContainer>
+                <AdminPanel><ToolsPanel /></AdminPanel>
+                <UserPanel><CasesPanel /></UserPanel>
+              </PanelContainer>  
+            </Map>          
+          </div>
         ) }
       </IfFirebaseAuthed>
     </FirebaseAuthProvider>

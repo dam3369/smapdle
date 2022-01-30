@@ -3,9 +3,9 @@ import { useState } from 'react'
 
 import Trash from './trash'
 import Menu from './menu'
-import { Box } from '../__style__/admin-panel.style'
+import { Box } from 'assets/style/panels/admin.style'
 import { json } from 'utils/app-func'
-import { dndCreateMarker } from 'actions'
+import { dndCreateMarker } from 'store/actions'
 
 export const ToolsPanel = () => {
   const [ isDragging, setIsDragging ] = useState(false)

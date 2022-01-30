@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { render } from 'react-dom'
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
@@ -12,7 +12,22 @@ import reportWebVitals, { sendToAnalytics } from './reportWebVitals'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  font-size: 14px;
+
+  :root {
+    // colors 
+    --blue: #152147;
+    --yellow: #ffdd00;
+    --light-yellow: #fbed53;
+    --white: #fff;
+
+    // colors definitions
+    --c-primary: var(--blue);
+    --c-secondary: var(--light-yellow);
+
+    --foreground-color: #152147;
+    --background-color: #fff;
+    --accent-color: #ffdd00;
+  }
 `
 
 render(

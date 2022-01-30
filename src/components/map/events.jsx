@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import config from '../../utils/app-config'
+import config from 'utils/app-config'
 
 const Events = ({ map }) => {
   useEffect(() => {

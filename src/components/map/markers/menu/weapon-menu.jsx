@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 import { GiAxeSword } from 'react-icons/gi'
-import { SubMenu, HList, HItem } from '../__style__/menu.style'
+import { SubMenu, HList, HItem } from 'assets/style/menu.style'
 
 
 const WeaponMenu = ({ weapons, isOpen, handleSave }) => (

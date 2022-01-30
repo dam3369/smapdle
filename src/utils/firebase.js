@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 
-import config from './app-config'
+import config from 'utils/app-config'
+import { getRealLogin } from 'utils/app-func'
 
 import 'firebase/analytics'
 import 'firebase/auth'
@@ -46,5 +47,14 @@ export const store = (collection) => ({
     }
   }
 })
+
+export const authenticate = async (login, passwd) => {
+  try {
+    await firebase.auth().signInWithEmailAndPassword(getRealLogin(login), passwd)
+    return [ true ]
+  } catch (reason) {
+    return [ false, reason ]
+  }
+}
 
 export default firebase
